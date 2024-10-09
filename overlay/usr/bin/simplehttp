@@ -1,0 +1,22 @@
+#!/bin/sh
+
+test "$1" -lt 65536 -a "$1" -gt 0 2>/dev/null && PORT="$1" || PORT=8000
+test -d "$2" && DIR="$2" || DIR="$PWD"
+
+printf 'Serving %s on port %d\n' "$DIR" "$PORT"
+
+lighttpd -D -f /dev/stdin <<EOF
+include "/etc/lighttpd/mime-types.conf"
+
+dir-listing.activate = "enable"
+server.modules = (
+    "mod_access",
+    "mod_accesslog"
+)
+
+server.document-root = "$DIR"
+server.port = $PORT
+
+server.errorlog      = "/dev/stderr"
+accesslog.filename   = "/dev/stderr"
+EOF

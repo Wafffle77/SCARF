@@ -1,0 +1,27 @@
+# This file contains the list of packages
+# to be installed into the read-only filesystem.
+# Lines that start with "#" are ignored.
+
+# Base packages
+alpine-base
+nano
+bash
+proot
+
+# Utils
+iptables
+iptables-legacy
+apache2-utils
+socat
+lighttpd
+
+# Extras
+neofetch
+htop
+
+# Graphical (Increases size significantly)
+#xterm
+#xfce4
+#xfce4-terminal
+#thunar
+#xorg-server-xephyr

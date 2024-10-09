@@ -1,0 +1,7 @@
+.vscode
+build
+*.AppImage
+
+apk.static
+proot
+proot_5.1.1_x86_64_rc2--no-seccomp
